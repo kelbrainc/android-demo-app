@@ -20,7 +20,10 @@ const changedFiles = danger.git.modified_files.length + danger.git.created_files
 
 if (!title.includes("feat:") && !title.includes("fix:") && !title.includes("test:") && 
     !title.includes("chore:") && !title.includes("docs:") && !title.includes("refactor:")) {
-
+    warn("⚠️ PR title should start with: feat:, fix:, test:, or chore:");
+    message("Example: `feat: add new calculator button`");
+}
+    
 // Rule 2: Check description
 if (!body || body.length < 10) {
   warn("⚠️ Please add a meaningful PR description (at least 10 characters)");
